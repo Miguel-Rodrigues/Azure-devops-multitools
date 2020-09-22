@@ -1,7 +1,11 @@
 ## TFDestroy - deletes and erases projects and it contents.
 
 ## TODO: Erase git repositories
-##       Trigger database shrink
+##       Trigger database shrink and cleanup (
+##           EXEC prc_DeleteUnusedContent 1
+##           EXEC prc_DeleteUnusedFiles 1, 0, 1000
+##           DBCC SHRINKDATABASE ([Tfs_JohnDoe], 10);
+##       )
 ##       Maintenance steps (detach project, backup reattach)
 ##       Check if project and sources exist before erasing, to avoid errors using TF Tool
 
