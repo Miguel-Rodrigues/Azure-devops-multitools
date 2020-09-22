@@ -12,7 +12,7 @@
 ## WARNING!! This software is available "AS IS" with no liability or warranty.
 ## Be aware this is a very destructive tool!! Once executed the actions cannot be undone. Create a backup before using it.
 ## Read the code before using it and use the "-WhatIf" switch to simulate the execution. Do not EVER use this tool on a production directly!
-## I'm not responsible for any your consequences by the misusage using this tool. You've been warned. :)
+## I'm not responsible for any consequences by the misusage using this tool. You've been warned. :)
 
 ## Usage: 
 ## .\tfdestroy.ps1 -Server "http://localhost:8080/devops" -Collection "JohnDoe" -ProjectMames @("Project 1","Project 2","Project 3") -PurgeDeleted
