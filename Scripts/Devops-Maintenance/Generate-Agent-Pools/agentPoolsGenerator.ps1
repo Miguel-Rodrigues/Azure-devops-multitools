@@ -6,7 +6,7 @@ param (
     [string] $config,
 
     # Agent Pool Package Directory
-    [string] $AgentPoolPackageDir = "..\..\vsts-agent-win-x64-2.144.2"
+    [string] $AgentPoolPackageDir = "..\vsts-agent-win-x64-2.144.2"
 )
 
 function LoadConfig([string] $configLocation) {
