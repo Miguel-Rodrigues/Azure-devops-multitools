@@ -1,0 +1,19 @@
+[
+    {
+        "url" : "https://mcrodrigues.visualstudio.com",
+        "token" : "{Place your Personal Access Token (PAT) here}",
+        "pool" : "AgentPool_A",
+        "agents" : [
+            { "agent" : "{agent_A01}", "workingDir" : "E:\\_Work\\{_a1}" },
+            { "agent" : "{agent_A02}", "workingDir" : "E:\\_Work\\{_a2}" }
+        ]
+    }, {
+        "url" : "https://mcrodrigues.visualstudio.com",
+        "token" : "{Place your Personal Access Token (PAT) here}",
+        "pool" : "AgentPool_B",
+        "agents" : [
+            { "agent" : "{agent_B01}", "workingDir" : "E:\\_Work\\{_b1}" },
+            { "agent" : "{agent_B01}", "workingDir" : "E:\\_Work\\{_b2}" }
+        ]
+    }
+]
