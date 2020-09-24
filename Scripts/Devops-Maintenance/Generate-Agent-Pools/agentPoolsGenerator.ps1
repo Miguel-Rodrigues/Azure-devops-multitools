@@ -3,7 +3,10 @@
 param (
     # Configuration file
     [Parameter(Mandatory=$true)]
-    [string] $config
+    [string] $config,
+
+    # Agent Pool Package Directory
+    [string] $AgentPoolPackageDir = "..\..\vsts-agent-win-x64-2.144.2"
 )
 
 function LoadConfig([string] $configLocation) {
@@ -42,7 +45,7 @@ try {
                 New-Item $_.workingDir -ItemType Directory
             }
 
-            Copy-Item -PassThru -Recurse -Path ..\..\vsts-agent-win-x64-2.144.2\* -Destination .\
+            Copy-Item -PassThru -Recurse -Path $AgentPoolPackageDir\* -Destination .\
 
             & $_.agent\config.cmd --url $definition.url --auth pat --token $definition.token --pool $definition.pool `
                 --agent $_.agent --work $_.workingDir  --unattended --runAsService
