@@ -5,19 +5,42 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "PowerShell: Launch Current File",
+            "name": "PowerShell: Launch agentPoolsGenerator.ps1 (Default)",
             "type": "PowerShell",
             "request": "launch",
-            "script": "${file}",
-            "cwd": "${file}",
+            "script": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\Generate-Agent-Pools\\agentPoolsGenerator.ps1",
+            "cwd": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\Generate-Agent-Pools",
+            "args": [ "-config ${workspaceFolder}\\Scripts\\Devops-Maintenance\\Generate-Agent-Pools\\agentPools.json" ]
+        },
+        {
+            "name": "PowerShell: Launch agentPoolsGenerator.ps1 (Specify Args)",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\Generate-Agent-Pools\\agentPoolsGenerator.ps1",
+            "cwd": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\Generate-Agent-Pools",
             "args": [ "${command:SpecifyScriptArgs}" ]
         },
         {
-            "name": "PowerShell: Launch Current File (No Args)",
+            "name": "PowerShell: Launch agentPoolsGenerator.ps1 (No Args)",
             "type": "PowerShell",
             "request": "launch",
-            "script": "${file}",
-            "cwd": "${file}",
+            "script": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\Generate-Agent-Pools\\agentPoolsGenerator.ps1",
+            "cwd": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\Generate-Agent-Pools",
         },
+        {
+            "name": "PowerShell: Launch tfdestroy.ps1",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\TFS-Purge-Tool\\tfdestroy.ps1",
+            "cwd": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\Generate-Agent-Pools",
+            "args": [ "${command:SpecifyScriptArgs}" ]
+        },
+        {
+            "name": "PowerShell: Launch tfdestroy.ps1 (No Args)",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\TFS-Purge-Tool\\tfdestroy.ps1",
+            "cwd": "${workspaceFolder}\\Scripts\\Devops-Maintenance\\TFS-Purge-Tool"
+        }
     ]
 }
