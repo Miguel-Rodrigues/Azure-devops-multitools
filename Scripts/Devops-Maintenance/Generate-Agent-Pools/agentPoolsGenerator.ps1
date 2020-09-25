@@ -6,7 +6,7 @@ param (
     [string] $config,
 
     # Agent Pool Package Directory
-    [string] $AgentPoolPackageDir = "..\vsts-agent-win-x64-2.144.2"
+    [string] $AgentPoolPackageDir = "..\..\vsts-agent-win-x64-2.144.2"
 )
 
 function LoadConfig([string] $configLocation) {
@@ -22,6 +22,8 @@ function LoadConfig([string] $configLocation) {
 
     $config
 }
+
+$currentDir = $PSScriptRoot
 
 try {
     $configObject = LoadConfig $config
@@ -45,10 +47,14 @@ try {
                 New-Item $_.workingDir -ItemType Directory
             }
 
+            Set-Location $_.agent
+
             Copy-Item -PassThru -Recurse -Path $AgentPoolPackageDir\* -Destination .\
 
-            & $_.agent\config.cmd --url $definition.url --auth pat --token $definition.token --pool $definition.pool `
+            & .\config.cmd --url $definition.url --auth pat --token $definition.token --pool $definition.pool `
                 --agent $_.agent --work $_.workingDir  --unattended --runAsService
+
+            Set-Location ..\
         }
 
         Set-Location ..\
@@ -58,3 +64,5 @@ catch {
     Write-Error $_
     Write-Host "Operation failed, check error above."
 }
+
+Set-Location $currentDir
